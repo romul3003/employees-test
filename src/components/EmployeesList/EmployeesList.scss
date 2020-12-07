@@ -1,0 +1,17 @@
+.employees-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+
+  &__item {
+    flex: 0 0 25%;
+    max-width: 25%;
+    padding: 1rem;
+  }
+
+  &__title {
+    padding: .5em;
+    background-color: #343a40;
+    color: #fff;
+  }
+}
