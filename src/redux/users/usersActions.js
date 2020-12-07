@@ -16,6 +16,13 @@ export const fetchUsersFailure = (errorMessage) => {
   }
 }
 
+export const checkUser = (id) => {
+  return {
+    type: usersTypes.CHECK_USER,
+    payload: id,
+  }
+}
+
 export const fetchUsers = () => async (dispatch) => {
   try {
     dispatch(fetchUsersStart())

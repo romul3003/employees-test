@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { fetchUsers } from '../../redux/users/usersActions'
+import { checkUser, fetchUsers } from '../../redux/users/usersActions'
 import './EmployeesPage.scss'
 import EmployeesList from '../../components/EmployeesList/EmployeesList'
 
@@ -24,12 +24,9 @@ const EmployeesPage = ({ employees, fetchEmployees }) => {
     }
   })
 
-  // eslint-disable-next-line no-console
-  console.log(employeesList)
-
   return (
     <div className="employees">
-      <EmployeesList employeesList={employeesList} />
+      <EmployeesList employeesList={employeesList} checkUser={checkUser} />
       <section className="birthday-section">
         <h2 className="birthday-section__title">Employees birthday</h2>
       </section>

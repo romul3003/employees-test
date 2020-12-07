@@ -1,6 +1,6 @@
 import React from 'react'
 import './EmployeesList.scss'
-import Employee from '../Employee/Employee'
+import EmployeeContainer from '../EmployeeContainer/EmployeeContainer'
 
 const EmployeesList = ({ employeesList }) => {
   return (
@@ -15,7 +15,7 @@ const EmployeesList = ({ employeesList }) => {
             ) : (
               <ul>
                 {item.employees.map((employee) => (
-                  <Employee key={employee.id} employee={employee} />
+                  <EmployeeContainer key={employee.id} employee={employee} />
                 ))}
               </ul>
             )}

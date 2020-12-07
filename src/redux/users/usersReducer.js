@@ -1,4 +1,5 @@
 import { usersTypes } from './usersTypes'
+import { changeCheckedUser } from './utils'
 
 const INITIAL_STATE = {
   users: null,
@@ -17,7 +18,10 @@ const usersReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        users: action.payload,
+        users: action.payload.map((user) => ({
+          ...user,
+          checked: false,
+        })),
         error: null,
       }
     case usersTypes.FETCH_USERS_FAILURE:
@@ -25,6 +29,11 @@ const usersReducer = (state = INITIAL_STATE, action) => {
         ...state,
         loading: false,
         error: action.payload,
+      }
+    case usersTypes.CHECK_USER:
+      return {
+        ...state,
+        users: changeCheckedUser(state.users, action.payload),
       }
     default:
       return state
