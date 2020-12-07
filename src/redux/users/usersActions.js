@@ -5,14 +5,16 @@ export const fetchUsersStart = () => ({
 })
 
 export const fetchUsersSuccess = (users) => ({
-  type: usersTypes.FETCH_USERS_START,
+  type: usersTypes.FETCH_USERS_SUCCESS,
   payload: users,
 })
 
-export const fetchUsersFailure = (error) => ({
-  type: usersTypes.FETCH_USERS_FAILURE,
-  payload: error,
-})
+export const fetchUsersFailure = (errorMessage) => {
+  return {
+    type: usersTypes.FETCH_USERS_FAILURE,
+    payload: errorMessage,
+  }
+}
 
 export const fetchUsers = () => async (dispatch) => {
   try {
@@ -20,9 +22,9 @@ export const fetchUsers = () => async (dispatch) => {
     const response = await fetch(
       'https://yalantis-react-school-api.yalantis.com/api/task0/users'
     )
-    // eslint-disable-next-line no-console
-    console.log(response)
+    const users = await response.json()
+    dispatch(fetchUsersSuccess(users))
   } catch (error) {
-    dispatch(fetchUsersFailure(error))
+    dispatch(fetchUsersFailure(error.message))
   }
 }

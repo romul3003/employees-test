@@ -1,7 +1,7 @@
 import { usersTypes } from './usersTypes'
 
 const INITIAL_STATE = {
-  employees: [],
+  users: [],
   loading: false,
   error: null,
 }
@@ -17,7 +17,7 @@ const usersReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        employees: action.payload,
+        users: action.payload,
         error: null,
       }
     case usersTypes.FETCH_USERS_FAILURE:
