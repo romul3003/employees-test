@@ -21,3 +21,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__main {
+    flex: 1 0 auto;
+  }
+}
