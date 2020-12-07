@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 import Header from './components/Header/Header'
 import HomePage from './pages/HomePage/HomePage'
-import Employees from './pages/Employees/Employees'
+import Employees from './pages/EmployeesPage/EmployeesPage'
 import './App.scss'
 
 function App() {

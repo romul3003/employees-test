@@ -1,7 +1,7 @@
 import { usersTypes } from './usersTypes'
 
 const INITIAL_STATE = {
-  users: [],
+  users: null,
   loading: false,
   error: null,
 }

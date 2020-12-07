@@ -1,0 +1,7 @@
+.employees {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 2rem;
+  margin-top: 4rem;
+  padding: 0 1rem
+}
