@@ -1,0 +1,4 @@
+export const birthdayUsersTypes = {
+  ADD_BIRTHDAY_USER: 'ADD_BIRTHDAY_USER',
+  REMOVE_BIRTHDAY_USER: 'REMOVE_BIRTHDAY_USER',
+}

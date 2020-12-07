@@ -16,10 +16,10 @@ export const fetchUsersFailure = (errorMessage) => {
   }
 }
 
-export const checkUser = (id) => {
+export const checkUser = (id, checked) => {
   return {
     type: usersTypes.CHECK_USER,
-    payload: id,
+    payload: { id, checked },
   }
 }
 

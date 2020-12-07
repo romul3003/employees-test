@@ -1,5 +1,7 @@
-export const changeCheckedUser = (users, userIdToCheck) => {
+export const changeCheckedUser = (users, userToCheck) => {
   return users.map((user) =>
-    user.id === userIdToCheck ? { ...user, checked: !user.checked } : user
+    user.id === userToCheck.id
+      ? { ...user, checked: userToCheck.checked }
+      : user
   )
 }
