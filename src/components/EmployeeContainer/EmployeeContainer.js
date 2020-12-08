@@ -5,7 +5,7 @@ import { checkUser } from '../../redux/users/usersActions'
 import {
   addBirthdayUser,
   removeBirthdayUser,
-} from '../../redux/birthdayUsers/birthdayUsersActions'
+} from '../../redux/birthday/birthdayActions'
 
 const EmployeeContainer = (props) => {
   return <Employee {...props} />

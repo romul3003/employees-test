@@ -1,4 +1,4 @@
-export const birthdayUsersTypes = {
+export const birthdayTypes = {
   ADD_BIRTHDAY_USER: 'ADD_BIRTHDAY_USER',
   REMOVE_BIRTHDAY_USER: 'REMOVE_BIRTHDAY_USER',
 }

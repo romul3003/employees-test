@@ -1,45 +1,25 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { checkUser, fetchUsers } from '../../redux/users/usersActions'
+import { fetchUsers } from '../../redux/users/usersActions'
 import './EmployeesPage.scss'
 import EmployeesList from '../../components/EmployeesList/EmployeesList'
+import Birthday from '../../components/Birthday/Birthday'
 
-const EmployeesPage = ({ employees, fetchEmployees }) => {
+const EmployeesPage = ({ fetchEmployees }) => {
   useEffect(() => {
     fetchEmployees()
   }, [fetchEmployees])
 
-  const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase()
-
-  if (!employees) {
-    return null
-  }
-
-  const employeesList = alphabet.split('').map((letter) => {
-    return {
-      letter: letter,
-      employees: employees.filter(
-        (employee) => employee.lastName.indexOf(letter) === 0
-      ),
-    }
-  })
-
   return (
     <div className="employees">
-      <EmployeesList employeesList={employeesList} checkUser={checkUser} />
-      <section className="birthday-section">
-        <h2 className="birthday-section__title">Employees birthday</h2>
-      </section>
+      <EmployeesList />
+      <Birthday />
     </div>
   )
 }
-
-const mapStateToProps = (state) => ({
-  employees: state.users.users,
-})
 
 const mapDispatchToProps = (dispatch) => ({
   fetchEmployees: () => dispatch(fetchUsers()),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(EmployeesPage)
+export default connect(null, mapDispatchToProps)(EmployeesPage)
