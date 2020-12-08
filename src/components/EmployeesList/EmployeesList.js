@@ -1,11 +1,12 @@
 import React from 'react'
-import './EmployeesList.scss'
+import { connect } from 'react-redux'
 import EmployeeContainer from '../EmployeeContainer/EmployeeContainer'
 import { fetchUsers } from '../../redux/users/usersActions'
-import { connect } from 'react-redux'
 import { alphabet } from '../../constants'
+import Spinner from '../Spinner/Spinner'
+import './EmployeesList.scss'
 
-const EmployeesList = ({ employees }) => {
+const EmployeesList = ({ employees, loading }) => {
   const sortEmployeesAlphabetically = (letter) => ({
     letter,
     employees: employees.filter(
@@ -38,13 +39,16 @@ const EmployeesList = ({ employees }) => {
   return (
     <section className="employees-section">
       <h2 className="employees-section__title">Employees</h2>
-      <ul className="employees-list">{employeesList}</ul>
+      <ul className="employees-list">
+        {loading ? <Spinner /> : employeesList}
+      </ul>
     </section>
   )
 }
 
 const mapStateToProps = (state) => ({
   employees: state.users.users,
+  loading: state.users.loading,
 })
 
 const mapDispatchToProps = (dispatch) => ({
