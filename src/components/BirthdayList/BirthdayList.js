@@ -28,7 +28,7 @@ const BirthdayList = ({ birthdayUsers }) => {
     months.map(sortUsersByMonth).map(getUsersMarkup)
   ) : (
     <li>
-      <h3>No selected employees</h3>
+      <h3 className="birthday-list__title">No selected employees</h3>
     </li>
   )
 
