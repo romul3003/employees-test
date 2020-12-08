@@ -15,7 +15,7 @@ const Employee = ({
     if (id === localStorage.getItem(id)) {
       addBirthdayUser({ ...employee, checked })
     }
-  }, [])
+  })
 
   const handleChange = (event) => {
     const { checked } = event.target
