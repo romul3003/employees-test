@@ -3,5 +3,13 @@
   grid-template-columns: 3fr 1fr;
   grid-column-gap: 2rem;
   margin-top: 4rem;
-  padding: 0 1rem
+  padding: 0 1rem;
+
+  @media (max-width: 1499px) {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  @media (max-width: 767px) {
+    display: block;
+  }
 }

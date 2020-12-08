@@ -1,9 +1,11 @@
 .birthday-list {
   &__name {
-    margin-bottom: .5em;
+    padding: .5em;
+    background-color: #343a40;
+    color: #fff;
   }
 
   &__month {
-    padding: 1rem
+    padding: 1rem 0;
   }
 }
