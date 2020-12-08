@@ -3,18 +3,17 @@ import './EmployeesList.scss'
 import EmployeeContainer from '../EmployeeContainer/EmployeeContainer'
 import { fetchUsers } from '../../redux/users/usersActions'
 import { connect } from 'react-redux'
+import { alphabet } from '../../constants'
 
 const EmployeesList = ({ employees }) => {
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-
-  const alphabetMapEmployees = (letter) => ({
-    letter: letter,
+  const sortEmployeesAlphabetically = (letter) => ({
+    letter,
     employees: employees.filter(
       (employee) => employee.lastName.indexOf(letter) === 0
     ),
   })
 
-  const jsxMapEmployees = (item) => (
+  const getEmployeesMarkup = (item) => (
     <li key={item.letter} className="employees-list__item">
       <h4 className="employees-list__title">{item.letter}</h4>
       {!item.employees.length ? (
@@ -30,7 +29,10 @@ const EmployeesList = ({ employees }) => {
   )
 
   const employeesList = employees
-    ? alphabet.split('').map(alphabetMapEmployees).map(jsxMapEmployees)
+    ? alphabet
+        .split('')
+        .map(sortEmployeesAlphabetically)
+        .map(getEmployeesMarkup)
     : null
 
   return (
