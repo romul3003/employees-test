@@ -20,7 +20,7 @@ const usersReducer = (state = INITIAL_STATE, action) => {
         loading: false,
         users: action.payload.map((user) => ({
           ...user,
-          checked: false,
+          checked: user.id === localStorage.getItem(user.id),
         })),
         error: null,
       }

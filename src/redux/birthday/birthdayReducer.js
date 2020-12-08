@@ -1,4 +1,5 @@
 import { birthdayTypes } from './birthdayTypes'
+import { addBirthdayUser } from '../users/utils'
 
 const INITIAL_STATE = {
   users: [],
@@ -9,7 +10,7 @@ const birthdayReducer = (state = INITIAL_STATE, action) => {
     case birthdayTypes.ADD_BIRTHDAY_USER:
       return {
         ...state,
-        users: [...state.users, action.payload],
+        users: addBirthdayUser(state.users, action.payload),
       }
     case birthdayTypes.REMOVE_BIRTHDAY_USER:
       return {

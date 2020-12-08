@@ -6,6 +6,16 @@ export const changeCheckedUser = (users, userToCheck) => {
   )
 }
 
+export const addBirthdayUser = (users, userToAdd) => {
+  const existingUser = users.find((user) => user.id === userToAdd.id)
+
+  if (existingUser) {
+    return users
+  }
+
+  return [...users, userToAdd]
+}
+
 export const formatDate = (dateStr) => {
   const date = new Date(dateStr)
   const options = {

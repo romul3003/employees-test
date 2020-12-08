@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Employee.scss'
 
 const Employee = ({
@@ -7,17 +7,25 @@ const Employee = ({
   addBirthdayUser,
   removeBirthdayUser,
 }) => {
-  const { lastName, firstName, id } = employee
+  const { lastName, firstName, id, checked } = employee
 
-  const [value, setValue] = useState(false)
+  const [value, setValue] = useState(checked)
+
+  useEffect(() => {
+    if (id === localStorage.getItem(id)) {
+      addBirthdayUser({ ...employee, checked })
+    }
+  }, [])
 
   const handleChange = (event) => {
     const { checked } = event.target
     checkUser(id, checked)
     if (checked) {
       addBirthdayUser({ ...employee, checked })
+      localStorage.setItem(id, id)
     } else {
       removeBirthdayUser({ ...employee, checked })
+      localStorage.removeItem(id)
     }
 
     setValue(event.target.checked)
